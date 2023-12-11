@@ -7,7 +7,6 @@
 #import <react/renderer/components/RNKeyboardMovingViewViewSpec/RCTComponentViewHelpers.h>
 
 #import "RCTFabricComponentsPlugins.h"
-#import "Utils.h"
 
 using namespace facebook::react;
 
@@ -45,7 +44,6 @@ using namespace facebook::react;
 
     if (oldViewProps.color != newViewProps.color) {
         NSString * colorToConvert = [[NSString alloc] initWithUTF8String: newViewProps.color.c_str()];
-        [_view setBackgroundColor: [Utils hexStringToColor:colorToConvert]];
     }
 
     [super updateProps:props oldProps:oldProps];

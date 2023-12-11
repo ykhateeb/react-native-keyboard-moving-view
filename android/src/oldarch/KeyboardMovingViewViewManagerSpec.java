@@ -1,12 +1,11 @@
 package com.keyboardmovingview;
 
-import android.view.View;
-
 import androidx.annotation.Nullable;
 
-import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.uimanager.SimpleViewManager;
+import com.facebook.react.views.view.ReactViewGroup;
+import com.facebook.react.views.view.ReactViewManager;
 
-public abstract class KeyboardMovingViewViewManagerSpec<T extends View> extends SimpleViewManager<T> {
-  public abstract void setColor(T view, @Nullable String value);
+public abstract class KeyboardMovingViewViewManagerSpec<T extends ReactViewGroup> extends ReactViewManager  {
+   public abstract void setBehavior(T view, String behavior);
+  public abstract void setExtraHeight(T view, float extraHeight);
 }

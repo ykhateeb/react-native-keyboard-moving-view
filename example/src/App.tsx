@@ -1,25 +1,14 @@
-import * as React from 'react';
+import React from 'react';
+import { Padding } from './Padding';
+import { Position } from './Position';
 
-import { StyleSheet, View } from 'react-native';
-import { KeyboardMovingViewView } from 'react-native-keyboard-moving-view';
+const behavior: 'padding' | 'position' = 'position';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <KeyboardMovingViewView color="#32a852" style={styles.box} />
-    </View>
-  );
+  switch (behavior) {
+    case 'padding':
+      return <Padding />;
+    case 'position':
+      return <Position />;
+  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});

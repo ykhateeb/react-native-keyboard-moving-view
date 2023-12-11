@@ -1,31 +1,89 @@
 # react-native-keyboard-moving-view
 
-react-native
+[![npm](https://img.shields.io/npm/v/react-native-keyboard-moving-view)](https://www.npmjs.com/package/react-native-keyboard-moving-view)
+[![npm](https://img.shields.io/npm/dm/react-native-keyboard-moving-view)](https://www.npmjs.com/package/react-native-keyboard-moving-view)
+![GitHub](https://img.shields.io/github/license/ykhateeb/react-native-keyboard-moving-view)
+[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/ykhateeb/react-native-keyboard-moving-view/ci.yml)](https://github.com/ykhateeb/react-native-keyboard-moving-view/actions/workflows/ci.yml)
+
+## Demonstration
+
+### IOS
+
+| Padding      | Position     |
+| ------------ | ------------ |
+| Content Cell | Content Cell |
+
+### Android
+
+| Padding      | Position     |
+| ------------ | ------------ |
+| Content Cell | Content Cell |
+
+---
 
 ## Installation
 
 ```sh
+yarn add react-native-keyboard-moving-view
+# OR
 npm install react-native-keyboard-moving-view
 ```
+
+### IOS
+
+```sh
+cd ios && pod install
+```
+
+---
 
 ## Usage
 
 ```js
-import { KeyboardMovingViewView } from "react-native-keyboard-moving-view";
+import React from 'react';
+import { KeyboardMovingView } from 'react-native-keyboard-moving-view';
+import { TextInput, StyleSheet, SafeAreaView } from 'react-native';
 
-// ...
+export default function App() {
+  return (
+    <SafeAreaView style={styles.safeAreaView}>
+      <KeyboardMovingView
+        style={styles.keyboardMovingView}
+        behavior="position"
+        extraHeight={25}
+      >
+        <TextInput style={styles.textInput} placeholder="Start typing" />
+      </KeyboardMovingView>
+    </SafeAreaView>
+  );
+}
 
-<KeyboardMovingViewView color="tomato" />
+const styles = StyleSheet.create({
+  safeAreaView: { flex: 1 },
+  keyboardMovingView: { flex: 1 },
+  textInput: {
+    fontSize: 17,
+    height: 60,
+    width: '100%',
+    backgroundColor: '#EFEEEE',
+    borderRadius: 5,
+    paddingHorizontal: 15,
+    marginTop: 'auto',
+  },
+});
 ```
 
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
-
-## License
-
-MIT
+Note: if you are using `SafeAreaView` component make sure to wrap it around the `KeyboardMovingView` component like in the example above.
 
 ---
 
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
+## Props
+
+| Name                 | Type                    | Default | Description                                                                                                        |
+| -------------------- | ----------------------- | ------- | ------------------------------------------------------------------------------------------------------------------ |
+| `behavior`           | `padding` OR `position` | `null`  | Determines the behavior of the component when the keyboard is shown                                                |
+| `extraHeight`        | `number`                | `0`     | Extra height between the keyboard and focused input(in `position` behavior) OR the content (in `padding` behavior) |
+| `onKeyboardWillShow` | `() => void`            | `null`  | Called when the keyboard is about to be shown                                                                      |
+| `onKeyboardWillHide` | `() => void`            | `null`  | Called when the keyboard is about to be hidden                                                                     |
+| `onKeyboardDidShow`  | `() => void`            | `null`  | Called when the keyboard is shown                                                                                  |
+| `onKeyboardDidHide`  | `() => void`            | `null`  | Called when the keyboard is hidden                                                                                 |
