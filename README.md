@@ -13,13 +13,13 @@ Out-of-the-box alternative to [KeyboardAvoidingView](https://reactnative.dev/doc
 
 |                         Padding                          |                         Position                          |
 | :------------------------------------------------------: | :-------------------------------------------------------: |
-| <img src="assets/ios-padding.gif?raw=true" width="280"/> | <img src="assets/ios-position.gif?raw=true" width="280"/> |
+| <img src="assets/ios-padding.gif?raw=true" width="270"/> | <img src="assets/ios-position.gif?raw=true" width="270"/> |
 
 ### Android
 
-|                           Padding                            |                             Position                             |
-| :----------------------------------------------------------: | :--------------------------------------------------------------: |
-| <img src="assets/android-padding.gif?raw=true" width="280"/> | <img src="assets/android-position-t1.gif?raw=true" width="280"/> |
+|                           Padding                            |                           Position                            |
+| :----------------------------------------------------------: | :-----------------------------------------------------------: |
+| <img src="assets/android-padding.gif?raw=true" width="270"/> | <img src="assets/android-position.gif?raw=true" width="270"/> |
 
 ## Installation
 
