@@ -1,6 +1,6 @@
 {
   "name": "react-native-keyboard-moving-view",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Out-of-the-box alternative to KeyboardAvoidingView, that provides identical behavior on both iOS and Android, with more extra features",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
