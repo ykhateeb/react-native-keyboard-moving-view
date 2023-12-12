@@ -5,21 +5,21 @@
 ![GitHub](https://img.shields.io/github/license/ykhateeb/react-native-keyboard-moving-view)
 [![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/ykhateeb/react-native-keyboard-moving-view/ci.yml)](https://github.com/ykhateeb/react-native-keyboard-moving-view/actions/workflows/ci.yml)
 
+Out-of-the-box alternative to [KeyboardAvoidingView](https://reactnative.dev/docs/keyboardavoidingview), that provides identical behavior on both iOS and Android, with more extra features.
+
 ## Demonstration
 
 ### IOS
 
-| Padding      | Position     |
-| ------------ | ------------ |
-| Content Cell | Content Cell |
+|              Padding               |               Position               |
+| :--------------------------------: | :----------------------------------: |
+| ![padding](assets/ios-padding.gif) | ![position](assets/ios-position.gif) |
 
 ### Android
 
-| Padding      | Position     |
-| ------------ | ------------ |
-| Content Cell | Content Cell |
-
----
+|                Padding                 |                 Position                 |
+| :------------------------------------: | :--------------------------------------: |
+| ![padding](assets/android-padding.gif) | ![position](assets/android-position.gif) |
 
 ## Installation
 
@@ -29,13 +29,11 @@ yarn add react-native-keyboard-moving-view
 npm install react-native-keyboard-moving-view
 ```
 
-### IOS
+#### IOS
 
 ```sh
 cd ios && pod install
 ```
-
----
 
 ## Usage
 
@@ -73,7 +71,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-Note: if you are using `SafeAreaView` component make sure to wrap it around the `KeyboardMovingView` component like in the example above.
+Note: if you are using `SafeAreaView` component make sure to wrap it around the `KeyboardMovingView` component to work as expected in IOS like in the example above.
 
 ---
 
