@@ -17,9 +17,9 @@ Out-of-the-box alternative to [KeyboardAvoidingView](https://reactnative.dev/doc
 
 ### Android
 
-|                Padding                 |                 Position                 |
-| :------------------------------------: | :--------------------------------------: |
-| ![padding](assets/android-padding.gif) | ![position](assets/android-position.gif) |
+|                       Padding                       |                       Position                       |
+| :-------------------------------------------------: | :--------------------------------------------------: |
+| <img src="assets/android-padding.gif" width="280"/> | <img src="assets/android-position.gif" width="280"/> |
 
 ## Installation
 
