@@ -1,7 +1,7 @@
-# react-native-keyboard-moving-view
+# React Native keyboard Moving View
 
 [![npm](https://img.shields.io/npm/v/react-native-keyboard-moving-view)](https://www.npmjs.com/package/react-native-keyboard-moving-view)
-[![npm](https://img.shields.io/npm/dm/react-native-keyboard-moving-view)](https://www.npmjs.com/package/react-native-keyboard-moving-view)
+[![npm](https://img.shields.io/npm/dw/react-native-keyboard-moving-view)](https://www.npmjs.com/package/react-native-keyboard-moving-view)
 ![GitHub](https://img.shields.io/github/license/ykhateeb/react-native-keyboard-moving-view)
 [![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/ykhateeb/react-native-keyboard-moving-view/ci.yml)](https://github.com/ykhateeb/react-native-keyboard-moving-view/actions/workflows/ci.yml)
 
