@@ -70,9 +70,9 @@ PODS:
     - FlipperKit/FlipperKitNetworkPlugin
   - fmt (6.2.1)
   - glog (0.3.5)
-  - hermes-engine (0.72.4):
-    - hermes-engine/Pre-built (= 0.72.4)
-  - hermes-engine/Pre-built (0.72.4)
+  - hermes-engine (0.72.7):
+    - hermes-engine/Pre-built (= 0.72.7)
+  - hermes-engine/Pre-built (0.72.7)
   - libevent (2.1.12)
   - OpenSSL-Universal (1.1.1100)
   - RCT-Folly (2021.07.22.00):
@@ -375,7 +375,7 @@ PODS:
   - React-jsinspector (0.72.7)
   - React-logger (0.72.7):
     - glog
-  - react-native-keyboard-moving-view (0.1.0):
+  - react-native-keyboard-moving-view (0.1.1):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
   - React-NativeModulesApple (0.72.7):
@@ -675,7 +675,7 @@ SPEC CHECKSUMS:
   FlipperKit: 2efad7007d6745a3f95e4034d547be637f89d3f6
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
-  hermes-engine: 81191603c4eaa01f5e4ae5737a9efcf64756c7b2
+  hermes-engine: 9180d43df05c1ed658a87cc733dc3044cf90c00a
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: 424b8c9a7a0b9ab2886ffe9c3b041ef628fd4fb1
@@ -693,7 +693,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: c49502e5d02112247ee4526bc3ccfc891ae3eb9b
   React-jsinspector: 8baadae51f01d867c3921213a25ab78ab4fbcd91
   React-logger: 8edc785c47c8686c7962199a307015e2ce9a0e4f
-  react-native-keyboard-moving-view: 4de9d22c46553a20ca6ed3f112eb75f4f9041e32
+  react-native-keyboard-moving-view: 4267f39083885e9d09070cb28796edf5086ade53
   React-NativeModulesApple: b6868ee904013a7923128892ee4a032498a1024a
   React-perflogger: 31ea61077185eb1428baf60c0db6e2886f141a5a
   React-RCTActionSheet: 392090a3abc8992eb269ef0eaa561750588fc39d
@@ -717,4 +717,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 6da69fd016db797e2d284e5cb0e75e69cbb03ac1
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.14.3
