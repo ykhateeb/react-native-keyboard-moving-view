@@ -86,7 +86,7 @@ typedef NS_ENUM(NSInteger, TranslationDirection) {
     CGFloat screenHeight = [SystemUIUtils screenHeight];
     CGFloat borderBottomWidth = MAX(MAX(self.borderWidth, self.borderBottomWidth)/** return -1 if there is no border set */, 0);
     CGFloat containerBottomHeight = screenHeight - (containerYPosition - borderBottomWidth);
-
+    
     NSDictionary *props = @{
         @"paddingBottom":@(keyboardHeight == 0 ?  keyboardHeight : MAX((keyboardHeight - containerBottomHeight), 0) + extraHeight)
     };
@@ -105,11 +105,11 @@ typedef NS_ENUM(NSInteger, TranslationDirection) {
     self.transform = CGAffineTransformMakeTranslation(0, (direction == TranslationDirectionTop ? -translationValue : 0));
 }
 
-- (bool)shouldHandleTransition:(CGFloat)keyboardHeight{
+- (bool)shouldHandleTransition{
     CGFloat screenHeight = [SystemUIUtils screenHeight];
     CGFloat focusViewYPosition = [SystemUIUtils focusViewYPosition:self];
     CGFloat bottomHeight = screenHeight - focusViewYPosition;/** height between View and bottom of screen */
-    return bottomHeight < keyboardHeight;
+    return bottomHeight < _keyboardHeight;
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
@@ -131,23 +131,21 @@ typedef NS_ENUM(NSInteger, TranslationDirection) {
     }
     
     if([self.behavior isEqualToString:@"position"]){
-        if(![self shouldHandleTransition:keyboardHeight]){
-            return;
+        if([self shouldHandleTransition]){
+            [self adjustScrollViewOffsetIfNeeded:[SystemUIUtils findFocusView:self] isAnimationEnabled:NO];
+            
+            CGFloat screenHeight = [SystemUIUtils screenHeight];
+            CGFloat focusViewYPosition = [SystemUIUtils focusViewYPosition:self];
+            _focusViewBottomHeight = MAX(screenHeight - focusViewYPosition, 0);
+            
+            [self transalteYPosition:TranslationDirectionTop keyboardHeight:keyboardHeight duration:duration curve:curve iskeyboardFrameChanged:NO];
         }
-        
-        [self adjustScrollViewOffsetIfNeeded:[SystemUIUtils findFocusView:self] isAnimationEnabled:NO];
-        
-        CGFloat screenHeight = [SystemUIUtils screenHeight];
-        CGFloat focusViewYPosition = [SystemUIUtils focusViewYPosition:self];
-        _focusViewBottomHeight = MAX(screenHeight - focusViewYPosition, 0);
-        
-        [self transalteYPosition:TranslationDirectionTop keyboardHeight:keyboardHeight duration:duration curve:curve iskeyboardFrameChanged:NO];
     }
     
     if(self.onKeyboardWillShow){
         self.onKeyboardWillShow(nil);
     }
-
+    
     _isKeyboardWillShow  = YES;
 }
 
@@ -169,7 +167,7 @@ typedef NS_ENUM(NSInteger, TranslationDirection) {
     if(self.onKeyboardWillHide){
         self.onKeyboardWillHide(nil);
     }
-
+    
     _isKeyboardWillShow  = NO;
 }
 
