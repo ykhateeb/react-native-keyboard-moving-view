@@ -39,8 +39,8 @@ cd ios && pod install
 
 ```js
 import React from 'react';
+import { SafeAreaView, TextInput, StyleSheet } from 'react-native';
 import { KeyboardMovingView } from 'react-native-keyboard-moving-view';
-import { TextInput, StyleSheet, SafeAreaView } from 'react-native';
 
 export default function App() {
   return (
