@@ -29,6 +29,7 @@ public class RootViewDeferringInsetsHandler extends WindowInsetsAnimationCompat.
   private float mBottomHeight = 0;
   private int mLastIMEHeight = 0;
   private boolean mIsIMEDidShow = false;
+  private boolean mShouldHandlePositionTransition = false;
 
   public RootViewDeferringInsetsHandler(ThemedReactContext context, KeyboardMovingViewView view) {
     super(WindowInsetsAnimationCompat.Callback.DISPATCH_MODE_STOP);
@@ -106,7 +107,7 @@ public class RootViewDeferringInsetsHandler extends WindowInsetsAnimationCompat.
       mView.updateProps(JavaOnlyMap.of("paddingBottom", PixelUtil.toDIPFromPixel((currentIMEHeight + (extraHeight * interpolatedFraction)) - (mBottomHeight * interpolatedFraction))));
     }
 
-    if (behavior.equals("position")) {
+    if (behavior.equals("position") && mShouldHandlePositionTransition) {
       float translationY = (currentIMEHeight - (mFocusViewBottomHeight * interpolatedFraction)) + (extraHeight * interpolatedFraction);
       mView.setTranslationY(-Math.max(translationY, 0));
     }
@@ -118,7 +119,6 @@ public class RootViewDeferringInsetsHandler extends WindowInsetsAnimationCompat.
   @Override
   public WindowInsetsAnimationCompat.BoundsCompat onStart(@NonNull WindowInsetsAnimationCompat animation, @NonNull WindowInsetsAnimationCompat.BoundsCompat bounds) {
     String behavior = mView.getBehavior();
-
     boolean isIMEVisible = SystemUIUtils.isIMEVisible(mView);
 
     if(isIMEVisible){
@@ -138,6 +138,7 @@ public class RootViewDeferringInsetsHandler extends WindowInsetsAnimationCompat.
       if (isIMEVisible && shouldHandleTransition()) {
         adjustScrollViewOffsetIfNeeded(SystemUIUtils.findFocusView(mView), false);
         mFocusViewBottomHeight = SystemUIUtils.getScreenHeight(mContext) - SystemUIUtils.getFocusViewYPosition(mView);
+        mShouldHandlePositionTransition = true;
       }
     }
 
@@ -148,14 +149,16 @@ public class RootViewDeferringInsetsHandler extends WindowInsetsAnimationCompat.
   public void onEnd(@NonNull WindowInsetsAnimationCompat animation) {
     super.onEnd(animation);
     boolean isIMEVisible = SystemUIUtils.isIMEVisible(mView);
+    //IME did show
     if(isIMEVisible){
       mIsIMEDidShow =  true ;
       mView.onKeyboardDidShowEvent();
     }else{
+      //IME did hide
       mIsIMEDidShow =  false ;
+      mShouldHandlePositionTransition = false;
       mView.onKeyboardDidHideEvent();
     }
-
   }
 
   private boolean shouldHandleTransition() {
